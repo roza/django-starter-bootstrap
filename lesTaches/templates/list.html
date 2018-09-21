@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+    {% load static %}
+
+    {% block content %}
+    <h1>Liste des tâches</h1>
+    <ul>
+    {% for elem in objects %}
+        <li>{{elem}}</li>
+    {% endfor %}
+    </ul>
+
+    {% endblock %}

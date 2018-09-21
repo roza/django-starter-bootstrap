@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+    {% load static %}
+    {% bloc title %}
+        Les Tâches
+    {% endblock %}
+
+    {% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+          crossorigin="anonymous">
+    {% endblock %}
+    {% block content %}
+    <h1>Liste des tâches</h1>
+
+    
+
+    {% for tache in objects %}
+    <div class="row">
+        <div class="col">{{tache.name}}</div>
+        <div class="col">{{tache.created_date}}</div>
+        <div class="col">{{tache.colored_due_date}}</div>
+        <div class="col">
+                {% if tache.closed %} 
+                    <i class="fas fa-lock"></i>
+                {% else %}
+                    <i class="fas fa-lock-open"></i>
+                {% endif %}
+        </div>
+       
+    </div>
+    {% endfor %}
+
+   
+
+    {% endblock %}
