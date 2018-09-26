@@ -1,5 +1,5 @@
-{{ contact_form.as_p }}
-
-<br/>
-
-{{ contact_form2.as_p }}
+<form action="/contacts/" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Sauvegarder"/>
+</form>
