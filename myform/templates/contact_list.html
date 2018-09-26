@@ -1,0 +1,26 @@
+{% extends "baseBS4.html" %}
+    {% load static %}
+    {% block title %}
+        Contacts
+    {% endblock %}
+
+    {% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+          crossorigin="anonymous">
+    {% endblock %}
+    {% block header %}<h1>Mes contacts</h1>{% endblock %}
+    {% block content %}
+
+    {% for pers in objects %}
+    <div class="row">
+        <div class="col">{{pers.name}}</div>
+        <div class="col">{{pers.firstname}}</div>
+        <div class="col">
+                    <i class="fas fa-lock"></i>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
