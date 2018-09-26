@@ -81,3 +81,8 @@ def delete(request, pers_id):
 def detail(request, cid):
     contact = Contact.objects.get(pk=cid)
     return HttpResponse('Nouveau contact '+contact.name+' '+contact.email)
+
+
+def liste(request):
+    objects = Contact.objects.all().order_by('name')
+    return render(request, template_name='contact_list.html', context={'objects': objects} )
