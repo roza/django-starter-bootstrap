@@ -1,0 +1,5 @@
+<form action="/contacts/edit/{{ pers_id }}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Modifier"/>
+</form>

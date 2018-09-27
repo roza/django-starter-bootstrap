@@ -1,0 +1,20 @@
+{% extends "baseBS4.html" %}
+    {% load static %}
+    {% block title %}
+        Contacts
+    {% endblock %}
+    {% block header %}
+    {% if messages %}
+        {% for message in messages %}
+            <h1>{{message}}</h1>
+        {% endfor %}
+    {% endif %}
+    {% endblock %}
+
+    {% block content %}
+    <ul>
+        <li>{{pers.firstname}}</li>
+        <li>{{pers.email}}</li>
+        <li>{{pers.message}}</li>
+    </ul>
+    {% endblock %}

@@ -4,6 +4,7 @@ from myform.models import Contact
 from django import forms
 from django.urls import reverse
 from django.http import HttpResponse
+from django.contrib import messages
 
 # Create your views here.
 
@@ -52,7 +53,10 @@ def contact(request):
         # on vérifie la validité du formulaire
         if form.is_valid():
             new_contact = form.save()
-            return redirect(reverse('detail', args=[new_contact.pk] ))
+            messages.success(request,'Nouveau contact '+new_contact.name+' '+new_contact.email)
+            #return redirect(reverse('detail', args=[new_contact.pk] ))
+            context = {'pers': new_contact}
+            return render(request,'detail.html', context)
     # Si méthode GET, on présente le formulaire
     context = {'form': form}
     return render(request,'contact.html', context)
@@ -67,11 +71,14 @@ def edit(request, pers_id):
         # on vérifie la validité du formulaire
         if form.is_valid():
             form.save()
-            return redirect(reverse('detail', args=[pers_id] ))
+            messages.success(request, 'Personne '+pers.name+' modifiée!')
+            #return redirect(reverse('detail', args=[pers_id] ))
+            context = {'pers': pers}
+            return render(request,'detail.html',context)
     # Si méthode GET, on présente le formulaire
     form = ContactForm(instance=pers)
-    context = {'form': form}
-    return render(request,'contact.html', context)
+    context = {'form': form,'pers_id': pers_id}
+    return render(request,'edite.html', context)
 
 def delete(request, pers_id):
     pers = Contact.objects.get(pk=pers_id)
