@@ -77,8 +77,8 @@ def edit(request, pers_id):
             return render(request,'detail.html',context)
     # Si méthode GET, on présente le formulaire
     form = ContactForm(instance=pers)
-    context = {'form': form,'pers_id': pers_id}
-    return render(request,'edite.html', context)
+    context = {'form': form,'pers': pers}
+    return render(request,'edite-crispy.html', context)
 
 def delete(request, pers_id):
     pers = Contact.objects.get(pk=pers_id)
