@@ -18,8 +18,8 @@ class ContactForm(ModelForm):
             'name': forms.TextInput(attrs={'placeholder': 'Doe'})
         }
         labels = {
-        "name": "Nom",
-        "firstname": "Prénom",
+            "name": "Nom",
+            "firstname": "Prénom",
     }
     
 
@@ -27,6 +27,7 @@ class ContactForm(ModelForm):
 from django import forms
 
 class ContactForm2(forms.Form):
+    
     name = forms.CharField(max_length=50, initial="Votre nom", label="nom")
     firstname = forms.CharField(max_length=50,  initial="Votre prénom", 
     label="prenom")
@@ -83,7 +84,9 @@ def edit(request, pers_id):
 def delete(request, pers_id):
     pers = Contact.objects.get(pk=pers_id)
     pers.delete()
-    return render(request,'contact.html')
+    form = ContactForm()
+    context = {'form': form}
+    return render(request,'contact.html', context)
 
 def detail(request, cid):
     contact = Contact.objects.get(pk=cid)

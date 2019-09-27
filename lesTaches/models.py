@@ -28,5 +28,4 @@ class Task(models.Model):
         return format_html("<span style=color:%s>%s</span>"
          % (color, due_date))
 
-    colored_due_date.allow_tags = True
     
