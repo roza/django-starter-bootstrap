@@ -1,0 +1,24 @@
+body{
+    background-color: antiquewhite;
+    color:crimson;
+}
+section{
+    margin: auto;
+    width: 70%;
+}
+
+.centree{
+    margin: auto;
+}
+
+.encadre {
+    width: 55%;
+    color: gray;
+    background: radial-gradient(ellipse at center, #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%);
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px groove;
+    box-shadow: blanchedalmond 10%;
+    box-shadow: 10px 5px 10px 5px rgba(200,25,30,0.8);
+}

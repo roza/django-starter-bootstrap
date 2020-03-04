@@ -10,6 +10,6 @@ def home(request, param):
 from lesTaches.models import Task
 
 def task_listing(request):
-    objects = Task.objects.all().order_by('due_date')
+    tasks = Task.objects.all().order_by('due_date')
     
-    return render(request, template_name='list2.html', context={'objects': objects} )
+    return render(request, template_name='maliste.html', context={'tasks': tasks} )

@@ -1,0 +1,15 @@
+{% extends "mabase.html" %}
+
+    {% block title %}
+        Liste des tâches
+    {% endblock %}
+
+    {% block content %}
+    
+    <ul>
+    {% for task in tasks %}
+        <li>{{task}}</li>
+    {% endfor %}
+    </ul>
+
+    {% endblock %}

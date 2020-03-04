@@ -1,0 +1,26 @@
+<!doctype html>
+{% load static %}
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'css/essai.css' %}">
+    {% endblock %}
+</head>
+
+<body>
+    <header class="encadre centree">
+        <h1>
+            Gestion des tâches
+        </h1>
+    </header>
+     {% block content %}
+    {% endblock %}
+</body>
+</html>
+
