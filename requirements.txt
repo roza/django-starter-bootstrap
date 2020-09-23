@@ -1,4 +1,6 @@
-Django==2.2.10
-django-crispy-forms==1.7.2
-pytz==2019.2
-sqlparse==0.3.0
+asgiref==3.2.10
+Django==3.1.1
+django-crispy-forms==1.9.2
+pkg-resources==0.0.0
+pytz==2020.1
+sqlparse==0.3.1
