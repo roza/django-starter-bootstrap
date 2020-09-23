@@ -1,15 +1,16 @@
+from lesTaches.models import Task
 from django.shortcuts import render
 
 from django.http import HttpResponse
 
 # Create your views here.
 
+
 def home(request, param):
     return HttpResponse("Hello Django ! "+param)
 
-from lesTaches.models import Task
 
 def task_listing(request):
     objects = Task.objects.all().order_by('due_date')
-    
-    return render(request, template_name='list2.html', context={'objects': objects} )
+
+    return render(request, template_name='list2.html', context={'objects': objects})
