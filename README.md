@@ -5,23 +5,23 @@ Django example project with bootstrap 4 templates
 
 ## Installation
 
-- create a virtualenv : `virtualenv -p python3 venv`{.bash}
-- activate : `source venv/bin/activate`{.bash}
-- migrate : `./manage.py migrate`{.bash}
+- create a virtualenv : `virtualenv -p python3 venv`
+- activate : `source venv/bin/activate`
+- migrate : `./manage.py migrate`
 - install  static dependencies :
-    - `cd static `{.bash} (at root level)
-    - `npm i`{.bash}
+    - `cd static ` (at root level)
+    - `npm i`
 
 ## Run server
 
 Just do:
 
-`./manage.py runserver`{.bash}
+`./manage.py runserver`
 
 
 ## Available routes 
 
-
+```bash
 admin/
 
 lesTaches/home/<param> [name='home']
@@ -32,3 +32,4 @@ contacts/detail/<int:cid> [name='detail']
 contacts/edit/<int:pers_id> [name='edite']
 contacts/del/<int:pers_id> [name='delete']
 contacts/list [name='listing'] 
+```
