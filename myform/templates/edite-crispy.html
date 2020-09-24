@@ -1,44 +1,44 @@
-{% extends "baseBS4.html" %}
+{% extends "base.html" %}
 
-    {% load crispy_forms_tags %}
-    
-    {% block title %}
-        Contact {{ pers.firstname }} {{ pers.name }}
-    {% endblock %}
-    
-    {% block navtitle %}
-        Contact {{ pers.firstname }} {{ pers.name }}
-    {% endblock %}
+{% load crispy_forms_tags %}
 
-    {% block header %}
-        {% if messages %}
-            {% for message in messages %}
-                <h1>{{message}}</h1>
-            {% endfor %}
-        {% endif %}
-    {% endblock %}
+{% block title %}
+Contact {{ pers.firstname }} {{ pers.name }}
+{% endblock %}
 
-    {% block content %}
+{% block navtitle %}
+Contact {{ pers.firstname }} {{ pers.name }}
+{% endblock %}
 
-    <form method="post" action="/contacts/edit/{{pers.pk}}">
+{% block header %}
+{% if messages %}
+{% for message in messages %}
+<h1>{{message}}</h1>
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="/contacts/edit/{{pers.pk}}">
     {% csrf_token %}
     <div class="row">
-          <div class="col-6">
+        <div class="col-6">
             {{ form.firstname|as_crispy_field }}
-          </div>
-          <div class="col-6">
-                {{ form.name|as_crispy_field }}
-          </div>
-          <div class="col-12">
-                {{ form.email|as_crispy_field }}
-          </div>
-          <div class="col-12">
-            {{ form.message|as_crispy_field }}
-          </div>
         </div>
-        <button type="submit" class="btn btn-success">
-            Save Contact
-        </button>
-    </form>
+        <div class="col-6">
+            {{ form.name|as_crispy_field }}
+        </div>
+        <div class="col-12">
+            {{ form.email|as_crispy_field }}
+        </div>
+        <div class="col-12">
+            {{ form.message|as_crispy_field }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">
+        Save Contact
+    </button>
+</form>
 
-    {% endblock %}
+{% endblock %}

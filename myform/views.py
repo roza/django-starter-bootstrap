@@ -62,6 +62,12 @@ def contact(request):
     context = {'form': form}
     return render(request,'contact.html', context)
 
+
+def detail(request, cid):
+    contact = Contact.objects.get(pk=cid)
+    return HttpResponse('Nouveau contact '+contact.name+' '+contact.email)
+
+
 def edit(request, pers_id):
     # on récupère la personne
     pers = Contact.objects.get(pk=pers_id)
@@ -84,13 +90,10 @@ def edit(request, pers_id):
 def delete(request, pers_id):
     pers = Contact.objects.get(pk=pers_id)
     pers.delete()
+    messages.success(request, 'Personne '+pers.name+' supprimée!')
     form = ContactForm()
     context = {'form': form}
     return render(request,'contact.html', context)
-
-def detail(request, cid):
-    contact = Contact.objects.get(pk=cid)
-    return HttpResponse('Nouveau contact '+contact.name+' '+contact.email)
 
 
 def liste(request):
