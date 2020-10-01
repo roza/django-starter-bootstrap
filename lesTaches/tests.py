@@ -36,4 +36,3 @@ class AccueilPageTest(TestCase):
 from django.template.loader import render_to_string
 
 
-    
