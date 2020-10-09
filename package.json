@@ -1,0 +1,22 @@
+{
+  "name": "dep",
+  "version": "1.0.0",
+  "description": "static dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "newinstall": "yarn install --modules-folder ./static"
+  },
+  "keywords": [
+    "bootstrap",
+    "jquery",
+    "popper"
+  ],
+  "author": "roza",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery-slim": "^3.0.0",
+    "popper.js": "^1.16.1"
+  }
+}
