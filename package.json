@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "newinstall": "yarn install --modules-folder ./static"
+    "newinstall": "yarn install --modules-folder ./static/node_modules/"
   },
   "keywords": [
     "bootstrap",
     "jquery",
-    "popper"
+    "popper.js"
   ],
   "author": "roza",
   "license": "ISC",
