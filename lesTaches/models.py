@@ -19,13 +19,12 @@ class Task(models.Model):
 
     def colored_due_date(self):
         due_date = django_date(self.due_date,"d F Y")
-        if self.due_date-timedelta(days=7) > date.today():
+        if self.due_date is None or self.due_date-timedelta(days=7) > date.today():
             color = "green"
         elif self.due_date < date.today():
             color = "red"
         else:
             color = "orange"
-        return format_html("<span style=color:%s>%s</span>"
-         % (color, due_date))
+        return format_html("<span style=color:%s>%s</span>" % (color, due_date))
 
     
