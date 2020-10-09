@@ -1,0 +1,23 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+    - port: 8000
+#      onOpen: open-preview
+
+tasks:
+    - init: pip3 install -r requirements.txt  && npm run --prefix static/ install
+      command: clear && ./manage.py migrate  && ./manage.py runserver
+      name: Split terminal
+    - openMode: split-right
+      command: echo SplitTerminal && clear
+    - command: gp await-port 8000 && gp preview $(gp url 8000)/myform/
+
+github:
+    prebuilds:
+        # enable for the master/default branch (defaults to true)
+        master: true
+        # enable for pull requests coming from this repo (defaults to true)
+        pullRequests: false
+        # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
+        addComment: false
