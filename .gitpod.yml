@@ -6,7 +6,7 @@ ports:
 #      onOpen: open-preview
 
 tasks:
-    - init: pip3 install -r requirements.txt  && yarn add static/package.json
+    - init: pip3 install -r requirements.txt  && yarn newinstall
       command: clear && ./manage.py migrate  && ./manage.py runserver
       name: Split terminal
     - openMode: split-right
