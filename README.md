@@ -33,3 +33,8 @@ contacts/edit/<int:pers_id> [name='edite']
 contacts/del/<int:pers_id> [name='delete']
 contacts/list [name='listing'] 
 ```
+
+## or ... use gitpod 
+
+
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/roza/django-starter-bs4)
