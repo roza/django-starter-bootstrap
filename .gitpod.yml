@@ -11,7 +11,7 @@ tasks:
       name: Split terminal
     - openMode: split-right
       command: echo SplitTerminal && clear
-    - command: gp await-port 8000 && gp preview $(gp url 8000)/myform/
+    - command: gp await-port 8000 && gp preview $(gp url 8000)/contacts/
 
 github:
     prebuilds:
