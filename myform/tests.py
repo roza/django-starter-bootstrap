@@ -71,6 +71,7 @@ class FunctionalTest(StaticLiveServerTestCase):
         time.sleep(1)
 
         #Le contact doit à présent être créé si tout s'est bien passé
+        # Ajuster à votre CSS
 
         noms = self.browser.find_elements_by_css_selector("body > div > div > section.content-header > div > div > div > div.box-header > a > h4")
         time.sleep(1)
@@ -88,11 +89,13 @@ class FunctionalTest(StaticLiveServerTestCase):
         elem.click()
         time.sleep(1)
         #Puis sélectionner l'icone de suppression pour supprimer le contact
+        # Ajuster à votre CSS
         self.browser.find_elements_by_css_selector("body > div > section.content-header > a:nth-child(1) > i")[0].click()
         time.sleep(1)
 
         #on verifie que le contact est bien supprimé
-        noms = self.browser.find_elements_by_css_selector("body > div > div > section.content-header > div > div > div > div.box-header > a > h4")
+        # Ajuster à votre CSS
+        noms = self.browser.find_elements_by_css_selector("body  > div > section.content-header > div > div > div.box-header > a > h4")
         contactFound = False
         for nom in noms:
             if( re.match("Ouette", nom.text) ):
