@@ -2,4 +2,6 @@ asgiref==3.2.10
 Django==3.1.1
 django-crispy-forms==1.9.2
 pytz==2020.1
+selenium==3.141.0
 sqlparse==0.3.1
+urllib3==1.25.10
