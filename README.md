@@ -6,11 +6,11 @@ Django example project with bootstrap 4 templates
 ## Installation
 
 - create a virtualenv : `virtualenv -p python3 venv`
+- install python dependencies : `pip install -r requirements.txt`
 - activate : `source venv/bin/activate`
 - migrate : `./manage.py migrate`
-- install  static dependencies :
-    - `cd static ` (at root level)
-    - `npm i`
+- install  static dependencies : `yarn newinstall ` (at root level)
+    
 
 ## Run server
 
