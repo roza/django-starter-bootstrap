@@ -161,6 +161,7 @@ DATE_INPUT_FORMATS = ('%d %m %Y', 'Y-m-d')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Le dossier static de l'app principale
 # contient des ressources statiques globales
