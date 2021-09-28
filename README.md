@@ -1,7 +1,7 @@
 # django-starter-bootstrap
 
 Django example project with bootstrap 4 templates 
-2 small apps with simple models, django forms and BS4 templating
+2 small apps with simple models, django forms and Bootstrap templating
 
 ## Installation
 
@@ -37,4 +37,4 @@ contacts/list [name='listing']
 ## or ... use gitpod 
 
 
-[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/roza/django-starter-bs4)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/roza/django-starter-bootstrap)
