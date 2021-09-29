@@ -1,7 +1,7 @@
 # django-starter-bootstrap
 
-Django example project with bootstrap 4 templates 
-2 small apps with simple models, django forms and Bootstrap templating
+* Django example project with bootstrap templates 
+* Two small apps with simple models, django forms and Bootstrap templating
 
 ## Installation
 
