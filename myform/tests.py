@@ -15,8 +15,8 @@ class FunctionalTest(StaticLiveServerTestCase):
         super().setUpClass()
         cls.options = Options()
         cls.options.add_argument("--headless")
-        cls.browser = webdriver.Firefox(executable_path='/tmp/geckodriver')
-        #cls.browser = webdriver.Chrome(executable_path='/usr/lib/chromedriver',options=cls.options)
+        cls.browser = webdriver.Firefox()
+        #cls.browser = webdriver.Chrome(executable_path='/usr/bin/chromedriver',options=cls.options)
         print("Webdriver loaded")
         cls.browser.implicitly_wait(3)
 
