@@ -2,19 +2,22 @@ from django.test import TestCase
 
 # Create your tests here.
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 #from django.test import LiveServerTestCase
 from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.firefox.webdriver import WebDriver
 from time import time
 import re
 
 class FunctionalTest(StaticLiveServerTestCase):
+    #fixtures = ['user-data.json']
 
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.options = Options()
-        cls.options.add_argument("--headless")
+        # cls.options.add_argument("--headless")
         cls.browser = webdriver.Firefox()
         #cls.browser = webdriver.Chrome(executable_path='/usr/bin/chromedriver',options=cls.options)
         print("Webdriver loaded")
@@ -29,8 +32,8 @@ class FunctionalTest(StaticLiveServerTestCase):
         # Alice se rend sur le site localhost:8000/contacts/
         # et compte y trouver une app de gestion des contacts
         # avec un formulaire de création 
-        self.browser.get('http://127.0.0.1:8000/contacts/')
-
+        self.browser.get('%s%s' % (self.live_server_url, '/contacts/'))
+        self.browser.implicitly_wait(3)
         # Elle remarque que le mot "Contact"
         # figure dans le titre de la page
         self.assertIn('Contact', self.browser.title)
@@ -46,15 +49,16 @@ class FunctionalTest(StaticLiveServerTestCase):
 
         # Alice se rend sur la route de création
         # d'un nouveau contact
-        self.browser.get('http://127.0.0.1:8000/contacts/')
+        print(self.live_server_url)
+        self.browser.get(self.live_server_url+'/contacts/')
         self.browser.implicitly_wait(3)
         # Elle crée un nouveau contact appelé  "Al" "Ouette"
         # Ayant pour mail "al@ouette.org"
         # Avec le message "Lorem ipsum dolor sit amet."
-        name = self.browser.find_element_by_id("id_name")
-        firstname = self.browser.find_element_by_id("id_firstname")
-        message = self.browser.find_element_by_id("id_message")
-        email = self.browser.find_element_by_id("id_email")
+        name = self.browser.find_element(By.ID, "id_name")
+        firstname = self.browser.find_element(By.ID,"id_firstname")
+        message = self.browser.find_element(By.ID, "id_message")
+        email = self.browser.find_element(By.ID,"id_email")
         # Elle envoie son nom, prénom
         name.send_keys("Ouette")
         self.browser.implicitly_wait(1)
@@ -68,15 +72,15 @@ class FunctionalTest(StaticLiveServerTestCase):
         self.browser.implicitly_wait(1)
 
         ## Alice valide le formulaire
-        self.browser.find_element_by_id("submit").click()
+        self.browser.find_element(By.ID,"submit").click()
         self.browser.implicitly_wait(1)
 
         #Le contact doit à présent être créé si tout s'est bien passé
         # Ajuster à votre CSS
         
-        title = self.browser.find_elements_by_css_selector(".jumbotron > h2:nth-child(1)")
+        title = self.browser.find_element(By.CSS_SELECTOR, ".jumbotron > h2:nth-child(1)")
         self.browser.implicitly_wait(1)
-        contactFound = "Ouette" in title[0].text
+        contactFound = "Ouette" in title.text
 
         #on vérifie si le contact a bien été trouvé
         self.assertEqual(True,contactFound)
