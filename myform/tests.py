@@ -5,8 +5,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 #from django.test import LiveServerTestCase
-from selenium.webdriver.chrome.options import Options
+#from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 #from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from time import time
 import re
 
@@ -17,8 +20,8 @@ class FunctionalTest(StaticLiveServerTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.options = Options()
-        # cls.options.add_argument("--headless")
-        cls.browser = webdriver.Firefox()
+        cls.options.add_argument("--headless")
+        cls.browser = webdriver.Firefox(options=cls.options)
         #cls.browser = webdriver.Chrome(executable_path='/usr/bin/chromedriver',options=cls.options)
         print("Webdriver loaded")
         cls.browser.implicitly_wait(3)
@@ -72,8 +75,11 @@ class FunctionalTest(StaticLiveServerTestCase):
         self.browser.implicitly_wait(1)
 
         ## Alice valide le formulaire
+        #submit = WebDriverWait(self.browser, 20).until(
+        #EC.presence_of_element_located((By.ID, "submit"))).click()
+        #submit.click()
         self.browser.find_element(By.ID,"submit").click()
-        self.browser.implicitly_wait(1)
+        self.browser.implicitly_wait(5)
 
         #Le contact doit à présent être créé si tout s'est bien passé
         # Ajuster à votre CSS
